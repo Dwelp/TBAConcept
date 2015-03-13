@@ -63,6 +63,7 @@ public class GDEImportExcel : EditorWindow {
         public BasicFieldType type;
         public string customType;
 
+#pragma warning disable 0649
         public bool isList;
 		public bool is2DList;
         public bool isCustom;

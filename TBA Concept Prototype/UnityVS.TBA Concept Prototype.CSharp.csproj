@@ -67,6 +67,18 @@
     <Reference Include="UnityEngine.Cloud.Analytics.Util">
       <HintPath>Assets\Plugins\UnityEngine.Cloud.Analytics.Util.dll</HintPath>
     </Reference>
+    <Reference Include="ProBuilderCore-Unity5">
+      <HintPath>Assets\ProCore\Prototype\Classes\ProBuilderCore-Unity5.dll</HintPath>
+    </Reference>
+    <Reference Include="ProBuilderMeshOps-Unity5">
+      <HintPath>Assets\ProCore\Prototype\Classes\ProBuilderMeshOps-Unity5.dll</HintPath>
+    </Reference>
+    <Reference Include="ProCore">
+      <HintPath>Assets\ProCore\Shared\Code\ProCore.dll</HintPath>
+    </Reference>
+    <Reference Include="pb_Profiler">
+      <HintPath>Assets\ProCore\Shared\pb_Profiler\pb_Profiler.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UnityVS.TBA Concept Prototype.CSharp.Plugins.csproj">
@@ -133,60 +145,12 @@
     <Compile Include="Assets\GameDataEditor\SampleScenes\GDESetDataScene\SetDataScene.cs" />
     <Compile Include="Assets\GameDataEditor\SampleScenes\GDESetDataScene\SetDataSceneBase.cs" />
     <Compile Include="Assets\GameDataEditor\SampleScenes\PlaymakerSetDataTestScene\SetDataPlaymaker.cs" />
-    <Compile Include="Assets\Prototyping\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
-    <Compile Include="Assets\Prototyping\CrossPlatformInput\Scripts\ButtonHandler.cs" />
-    <Compile Include="Assets\Prototyping\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
-    <Compile Include="Assets\Prototyping\CrossPlatformInput\Scripts\InputAxisScrollbar.cs" />
-    <Compile Include="Assets\Prototyping\CrossPlatformInput\Scripts\Joystick.cs" />
-    <Compile Include="Assets\Prototyping\CrossPlatformInput\Scripts\MobileControlRig.cs" />
-    <Compile Include="Assets\Prototyping\CrossPlatformInput\Scripts\PlatformSpecific\MobileInput.cs" />
-    <Compile Include="Assets\Prototyping\CrossPlatformInput\Scripts\PlatformSpecific\StandaloneInput.cs" />
-    <Compile Include="Assets\Prototyping\CrossPlatformInput\Scripts\TiltInput.cs" />
-    <Compile Include="Assets\Prototyping\CrossPlatformInput\Scripts\TouchPad.cs" />
-    <Compile Include="Assets\Prototyping\CrossPlatformInput\Scripts\VirtualInput.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_New.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDir.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDirectionTranslate.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_Translate.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Demo\UI\CFX_Demo_GTButton.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Demo\UI\CFX_Demo_GTToggle.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Scripts\CFX_AutoDestructShuriken.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Scripts\CFX_AutoRotate.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Scripts\CFX_AutodestructWhenNoChildren.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Scripts\CFX_InspectorHelp.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
-    <Compile Include="Assets\Prototyping\Utility\ActivateTrigger.cs" />
-    <Compile Include="Assets\Prototyping\Utility\AutoMobileShaderSwitch.cs" />
-    <Compile Include="Assets\Prototyping\Utility\AutoMoveAndRotate.cs" />
-    <Compile Include="Assets\Prototyping\Utility\CameraRefocus.cs" />
-    <Compile Include="Assets\Prototyping\Utility\CurveControlledBob.cs" />
-    <Compile Include="Assets\Prototyping\Utility\DragRigidbody.cs" />
-    <Compile Include="Assets\Prototyping\Utility\DynamicShadowSettings.cs" />
-    <Compile Include="Assets\Prototyping\Utility\FOVKick.cs" />
-    <Compile Include="Assets\Prototyping\Utility\FPSCounter.cs" />
-    <Compile Include="Assets\Prototyping\Utility\FollowTarget.cs" />
-    <Compile Include="Assets\Prototyping\Utility\ForcedReset.cs" />
-    <Compile Include="Assets\Prototyping\Utility\LerpControlledBob.cs" />
-    <Compile Include="Assets\Prototyping\Utility\ObjectResetter.cs" />
-    <Compile Include="Assets\Prototyping\Utility\ParticleSystemDestroyer.cs" />
-    <Compile Include="Assets\Prototyping\Utility\PlatformSpecificContent.cs" />
-    <Compile Include="Assets\Prototyping\Utility\SimpleActivatorMenu.cs" />
-    <Compile Include="Assets\Prototyping\Utility\SimpleMouseRotator.cs" />
-    <Compile Include="Assets\Prototyping\Utility\SmoothFollow.cs" />
-    <Compile Include="Assets\Prototyping\Utility\TimedObjectActivator.cs" />
-    <Compile Include="Assets\Prototyping\Utility\TimedObjectDestructor.cs" />
-    <Compile Include="Assets\Prototyping\Utility\WaypointCircuit.cs" />
-    <Compile Include="Assets\Prototyping\Utility\WaypointProgressTracker.cs" />
-    <Compile Include="Assets\Scripts\AutoSingletonManager.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\QTimer.cs" />
-    <Compile Include="Assets\Scripts\TestScript.cs" />
-    <Compile Include="Assets\Scripts\UnityAnalyticsIntegration.cs" />
+    <Compile Include="Assets\_Scripts\AutoSingletonManager.cs" />
+    <Compile Include="Assets\_Scripts\CombatManager.cs" />
+    <Compile Include="Assets\_Scripts\GameManager.cs" />
+    <Compile Include="Assets\_Scripts\QTimer.cs" />
+    <Compile Include="Assets\_Scripts\TestScript.cs" />
+    <Compile Include="Assets\_Scripts\UnityAnalyticsIntegration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GameDataEditor\SampleScenes\PlaymakerReadTestScene\Resources\playmaker_readtest_data.txt" />
@@ -197,13 +161,27 @@
     <None Include="Assets\Plugins\Demigiant\DOTween\DOTween46.xml" />
     <None Include="Assets\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
     <None Include="Assets\Plugins\Demigiant\DOTween\readme.txt" />
-    <None Include="Assets\Prototyping\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
-    <None Include="Assets\Prototyping\JMO Assets\!JMO Assets Readme.txt" />
-    <None Include="Assets\Prototyping\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
-    <None Include="Assets\Prototyping\JMO Assets\Cartoon FX\CartoonFX Readme.txt" />
-    <None Include="Assets\Prototyping\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_WaterWiggle.shader" />
-    <None Include="Assets\Prototyping\JMO Assets\Cartoon FX\Shaders (Mobile)\CFXM_MobileParticleAdd_Alpha8.shader" />
-    <None Include="Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
+    <None Include="Assets\Plugins\Prototyping\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+    <None Include="Assets\Plugins\Prototyping\JMO Assets\!JMO Assets Readme.txt" />
+    <None Include="Assets\Plugins\Prototyping\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
+    <None Include="Assets\Plugins\Prototyping\JMO Assets\Cartoon FX\CartoonFX Readme.txt" />
+    <None Include="Assets\Plugins\Prototyping\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_WaterWiggle.shader" />
+    <None Include="Assets\Plugins\Prototyping\JMO Assets\Cartoon FX\Shaders (Mobile)\CFXM_MobileParticleAdd_Alpha8.shader" />
+    <None Include="Assets\Plugins\Prototyping\Shaders\WorldCoordDiffuse.shader" />
+    <None Include="Assets\ProCore\_README_PROTOTYPE.txt" />
+    <None Include="Assets\ProCore\Prototype\About\changelog.txt" />
+    <None Include="Assets\ProCore\Prototype\About\Credits.txt" />
+    <None Include="Assets\ProCore\Prototype\About\pc_AboutEntry_ProBuilder.txt" />
+    <None Include="Assets\ProCore\Prototype\Shader\DiffuseTextureBlend.shader" />
+    <None Include="Assets\ProCore\Prototype\Shader\DiffuseVertexColor.shader" />
+    <None Include="Assets\ProCore\Prototype\Shader\DiffuseVertexColorEmission.shader" />
+    <None Include="Assets\ProCore\Prototype\Shader\DiffuseVertexColorTransparency.shader" />
+    <None Include="Assets\ProCore\Prototype\Shader\pb_FaceHighlight.shader" />
+    <None Include="Assets\ProCore\Prototype\Shader\pb_UnlitVertexColor.shader" />
+    <None Include="Assets\ProCore\Prototype\Shader\pb_VertexShader.shader" />
+    <None Include="Assets\ProCore\Prototype\Shader\UnlitSolidColor.shader" />
+    <None Include="Assets\ProCore\Shared\About\README.txt" />
+    <None Include="Assets\prototype_textures\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>

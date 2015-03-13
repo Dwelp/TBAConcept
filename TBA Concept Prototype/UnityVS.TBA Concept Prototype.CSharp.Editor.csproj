@@ -109,6 +109,9 @@
     <Reference Include="DOTweenEditor">
       <HintPath>Assets\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
     </Reference>
+    <Reference Include="JMOAssets">
+      <HintPath>Assets\Plugins\Prototyping\JMO Assets\Editor\JMOAssets.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Cloud.Analytics">
       <HintPath>Assets\Plugins\UnityEngine.Cloud.Analytics.dll</HintPath>
     </Reference>
@@ -124,8 +127,20 @@
     <Reference Include="UnityVS.VersionSpecific">
       <HintPath>Assets\Plugins\UnityVS\Editor\UnityVS.VersionSpecific.dll</HintPath>
     </Reference>
-    <Reference Include="JMOAssets">
-      <HintPath>Assets\Prototyping\JMO Assets\Editor\JMOAssets.dll</HintPath>
+    <Reference Include="ProBuilderCore-Unity5">
+      <HintPath>Assets\ProCore\Prototype\Classes\ProBuilderCore-Unity5.dll</HintPath>
+    </Reference>
+    <Reference Include="ProBuilderMeshOps-Unity5">
+      <HintPath>Assets\ProCore\Prototype\Classes\ProBuilderMeshOps-Unity5.dll</HintPath>
+    </Reference>
+    <Reference Include="ProBuilderEditor-Unity5">
+      <HintPath>Assets\ProCore\Prototype\Editor\ProBuilderEditor-Unity5.dll</HintPath>
+    </Reference>
+    <Reference Include="ProCore">
+      <HintPath>Assets\ProCore\Shared\Code\ProCore.dll</HintPath>
+    </Reference>
+    <Reference Include="pb_Profiler">
+      <HintPath>Assets\ProCore\Shared\pb_Profiler\pb_Profiler.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -160,9 +175,26 @@
     <Compile Include="Assets\GameDataEditor\Editor\GDEPreferences.cs" />
     <Compile Include="Assets\GameDataEditor\Editor\GDESchemaManagerWindow.cs" />
     <Compile Include="Assets\GameDataEditor\Editor\GDEValidateIdentifier.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Editor\CFX_InspectorHelpEditor.cs" />
-    <Compile Include="Assets\Prototyping\JMO Assets\Cartoon FX\Editor\CFX_SpawnSystemEditor.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Actions\pb_GenerateUV2.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Geometry\pb_ExtrudeElement.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Geometry\pb_FlipNormals.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Geometry\pb_SetPivot.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Repair\pb_CleanLeakedMeshes.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Repair\pb_ForceSceneRefresh.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Repair\pb_RemoveDegenerateTris.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Repair\pb_RepairUV.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Selection\pb_EdgeSelection.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Selection\pb_ExpandSelection.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Selection\pb_InvertSelection.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Selection\pb_MaterialSelection.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Window\pb_ProBuilderMenuItems.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\pb_MenuItems.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\pb_MissingScriptEditor.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\pb_Preferences.cs" />
+    <Compile Include="Assets\ProCore\Prototype\Editor\pb_ScenePostProcessor.cs" />
+    <Compile Include="Assets\ProCore\Shared\About\Editor\pb_AboutWindow.cs" />
+    <Compile Include="Assets\ProCore\Shared\pb_Profiler\Editor\Tests\TestProfiler.cs" />
+    <Compile Include="Assets\ProCore\Shared\pb_Profiler\Editor\pb_Profiler_Interface.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GameDataEditor\SampleScenes\PlaymakerReadTestScene\Resources\playmaker_readtest_data.txt" />
@@ -173,13 +205,27 @@
     <None Include="Assets\Plugins\Demigiant\DOTween\DOTween46.xml" />
     <None Include="Assets\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
     <None Include="Assets\Plugins\Demigiant\DOTween\readme.txt" />
-    <None Include="Assets\Prototyping\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
-    <None Include="Assets\Prototyping\JMO Assets\!JMO Assets Readme.txt" />
-    <None Include="Assets\Prototyping\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
-    <None Include="Assets\Prototyping\JMO Assets\Cartoon FX\CartoonFX Readme.txt" />
-    <None Include="Assets\Prototyping\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_WaterWiggle.shader" />
-    <None Include="Assets\Prototyping\JMO Assets\Cartoon FX\Shaders (Mobile)\CFXM_MobileParticleAdd_Alpha8.shader" />
-    <None Include="Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
+    <None Include="Assets\Plugins\Prototyping\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+    <None Include="Assets\Plugins\Prototyping\JMO Assets\!JMO Assets Readme.txt" />
+    <None Include="Assets\Plugins\Prototyping\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
+    <None Include="Assets\Plugins\Prototyping\JMO Assets\Cartoon FX\CartoonFX Readme.txt" />
+    <None Include="Assets\Plugins\Prototyping\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_WaterWiggle.shader" />
+    <None Include="Assets\Plugins\Prototyping\JMO Assets\Cartoon FX\Shaders (Mobile)\CFXM_MobileParticleAdd_Alpha8.shader" />
+    <None Include="Assets\Plugins\Prototyping\Shaders\WorldCoordDiffuse.shader" />
+    <None Include="Assets\ProCore\_README_PROTOTYPE.txt" />
+    <None Include="Assets\ProCore\Prototype\About\changelog.txt" />
+    <None Include="Assets\ProCore\Prototype\About\Credits.txt" />
+    <None Include="Assets\ProCore\Prototype\About\pc_AboutEntry_ProBuilder.txt" />
+    <None Include="Assets\ProCore\Prototype\Shader\DiffuseTextureBlend.shader" />
+    <None Include="Assets\ProCore\Prototype\Shader\DiffuseVertexColor.shader" />
+    <None Include="Assets\ProCore\Prototype\Shader\DiffuseVertexColorEmission.shader" />
+    <None Include="Assets\ProCore\Prototype\Shader\DiffuseVertexColorTransparency.shader" />
+    <None Include="Assets\ProCore\Prototype\Shader\pb_FaceHighlight.shader" />
+    <None Include="Assets\ProCore\Prototype\Shader\pb_UnlitVertexColor.shader" />
+    <None Include="Assets\ProCore\Prototype\Shader\pb_VertexShader.shader" />
+    <None Include="Assets\ProCore\Prototype\Shader\UnlitSolidColor.shader" />
+    <None Include="Assets\ProCore\Shared\About\README.txt" />
+    <None Include="Assets\prototype_textures\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>
