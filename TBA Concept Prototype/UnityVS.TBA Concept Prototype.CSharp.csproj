@@ -67,6 +67,9 @@
     <Reference Include="UnityEngine.Cloud.Analytics.Util">
       <HintPath>Assets\Plugins\UnityEngine.Cloud.Analytics.Util.dll</HintPath>
     </Reference>
+    <Reference Include="Vectrosity">
+      <HintPath>Assets\Plugins\Vectrosity.dll</HintPath>
+    </Reference>
     <Reference Include="ProBuilderCore-Unity5">
       <HintPath>Assets\ProCore\Prototype\Classes\ProBuilderCore-Unity5.dll</HintPath>
     </Reference>
@@ -148,13 +151,16 @@
     <Compile Include="Assets\_Scripts\AutoSingletonManager.cs" />
     <Compile Include="Assets\_Scripts\CombatInfo.cs" />
     <Compile Include="Assets\_Scripts\CombatManager.cs" />
+    <Compile Include="Assets\_Scripts\DebugX.cs" />
     <Compile Include="Assets\_Scripts\GameEnums.cs" />
     <Compile Include="Assets\_Scripts\GameManager.cs" />
+    <Compile Include="Assets\_Scripts\LookAtCamera.cs" />
     <Compile Include="Assets\_Scripts\QTimer.cs" />
     <Compile Include="Assets\_Scripts\TestScript.cs" />
     <Compile Include="Assets\_Scripts\UIManager.cs" />
     <Compile Include="Assets\_Scripts\Unit.cs" />
     <Compile Include="Assets\_Scripts\UnityAnalyticsIntegration.cs" />
+    <Compile Include="Assets\_Scripts\test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\_Materials\prototype_textures\readme.txt" />

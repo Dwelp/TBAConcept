@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{32C09349-9DE6-CBF0-0A41-19FBE84D53AC}</ProjectGuid>
+	<ProjectGuid>{C936187D-0A47-A591-6FCE-E94CF780E08C}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+	<AssemblyName>Assembly-UnityScript-Editor</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,47 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\GameDataEditor\Editor\CodeGen\GDECodeGen.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\CodeGen\GDECodeGenConstants.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\CodeGen\GDECodeGenWindow.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\ExcelImport\GDEDriveHelper.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\ExcelImport\GDEExcelDataHelper.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\ExcelImport\GDEImportExcel.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\ExcelImport\GDELexer.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\ExcelImport\GDEOAuth.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\ExcelImport\GDEParser.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\ExcelImport\GDEToken.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\ExcelImport\GDETokenDefinition.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\ExcelImport\GDETokenPosition.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\ExcelImport\IGDELexer.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\GDEConstants.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\GDEItemManager.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\GDEItemManagerWindow.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\GDELinks.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\GDEManagerWindowBase.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\GDEPreferences.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\GDESchemaManagerWindow.cs" />
-     <Compile Include="Assets\GameDataEditor\Editor\GDEValidateIdentifier.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Actions\pb_GenerateUV2.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Geometry\pb_ExtrudeElement.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Geometry\pb_FlipNormals.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Geometry\pb_SetPivot.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Repair\pb_CleanLeakedMeshes.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Repair\pb_ForceSceneRefresh.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Repair\pb_RemoveDegenerateTris.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Repair\pb_RepairUV.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Selection\pb_EdgeSelection.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Selection\pb_ExpandSelection.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Selection\pb_InvertSelection.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Selection\pb_MaterialSelection.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\MenuItems\Window\pb_ProBuilderMenuItems.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\pb_MenuItems.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\pb_MissingScriptEditor.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\pb_Preferences.cs" />
-     <Compile Include="Assets\ProCore\Prototype\Editor\pb_ScenePostProcessor.cs" />
-     <Compile Include="Assets\ProCore\Shared\About\Editor\pb_AboutWindow.cs" />
-     <Compile Include="Assets\ProCore\Shared\pb_Profiler\Editor\Tests\TestProfiler.cs" />
-     <Compile Include="Assets\ProCore\Shared\pb_Profiler\Editor\pb_Profiler_Interface.cs" />
+     <Compile Include="Assets\Vectrosity\Editor\LineMaker.js" />
      <None Include="Assets\Plugins\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Plugins\Prototyping\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\ProCore\Prototype\About\changelog.txt" />
@@ -179,10 +139,10 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{D1C88DA5-C917-42C2-5C5E-CB4AC00107DF}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
-    <ProjectReference Include="Assembly-CSharp-vs.csproj">
-      <Project>{32132E36-09B4-BB73-C98B-2DAEB0F31DAF}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{D1C88DA5-C917-42C2-5C5E-CB4AC00107DF}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{32132E36-09B4-BB73-C98B-2DAEB0F31DAF}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

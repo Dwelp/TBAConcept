@@ -169,6 +169,9 @@
  <Reference Include="pb_Profiler">
  <HintPath>F:/GameDEV/TBAConcept/TBA Concept Prototype/Assets/ProCore/Shared/pb_Profiler/pb_Profiler.dll</HintPath>
  </Reference>
+ <Reference Include="Vectrosity">
+ <HintPath>F:/GameDEV/TBAConcept/TBA Concept Prototype/Assets/Plugins/Vectrosity.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 public class CombatManager : Manager<CombatManager> {
@@ -11,12 +12,25 @@ public class CombatManager : Manager<CombatManager> {
         AI
     }
 
-    TurnController turnController;
+    public enum CombatState
+    {
+        Init,
+        PassTime,
+        ActiveTurn
+    }
+
+    public TurnController turnController;
+    CombatState combatState;
     CombatInfo combatInfo;
+
+    // -- Tracking
+    List<Unit> readyUnits;
+    Unit activeUnit;
 
     void Awake()
     {
-        
+        readyUnits = new List<Unit>();
+        combatState = CombatState.Init;
     }
 
 	// Use this for initialization
@@ -26,7 +40,11 @@ public class CombatManager : Manager<CombatManager> {
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    if(combatState == CombatState.PassTime)
+        {
+            if(!CheckForReadyUnits())
+                ProcessTime();
+        }
 	}
 
     public void InitCombat()
@@ -34,16 +52,62 @@ public class CombatManager : Manager<CombatManager> {
         combatInfo = new CombatInfo();
 
         combatInfo.combatUnits = (GameObject.FindObjectsOfType<Unit>()).ToList();
+        combatInfo.combatUnits = combatInfo.combatUnits.OrderBy(p => p.speed).ToList();
         print("found " + combatInfo.combatUnits.Count + " units");
+
+        combatState = CombatState.PassTime;
     }
 
-    void StarTurn(Unit unit)
+    void ProcessTime()
     {
+        for (int i = 0; i < combatInfo.combatUnits.Count; i++)
+        {
+            Unit unit = combatInfo.combatUnits[i];
 
+            unit.UpdateSpeedGouge(Time.deltaTime);
+
+            if(unit.speedGougeReady)
+            {
+                readyUnits.Add(unit);
+            }
+        }
+
+        readyUnits = readyUnits.OrderBy(p => p.speed).ToList();
     }
 
-    void EndTurn(Unit unit)
+    bool CheckForReadyUnits()
     {
+        if(readyUnits.Count > 0)
+        {
+            SetupTurn(readyUnits[0]);
+            return true;
+        }
 
+        return false;
+    }
+
+    void SetupTurn(Unit unit)
+    {
+        combatState = CombatState.ActiveTurn;
+        readyUnits.Remove(unit);
+        activeUnit = unit;
+
+        StarTurn();             
+    }
+
+    void StarTurn()
+    {
+        if (activeUnit.unitOwner == UnitOwner.Player)
+            turnController = TurnController.Player;
+        else
+            turnController = TurnController.AI;
+    }
+
+    public void EndTurn()
+    {
+        activeUnit.ResetSpeedGouge();
+        activeUnit = null;
+        turnController = TurnController.None;
+        combatState = CombatState.PassTime;
     }
 }

@@ -67,6 +67,9 @@
     <Reference Include="UnityEngine.Cloud.Analytics.Util">
       <HintPath>Assets\Plugins\UnityEngine.Cloud.Analytics.Util.dll</HintPath>
     </Reference>
+    <Reference Include="Vectrosity">
+      <HintPath>Assets\Plugins\Vectrosity.dll</HintPath>
+    </Reference>
     <Reference Include="ProBuilderCore-Unity5">
       <HintPath>Assets\ProCore\Prototype\Classes\ProBuilderCore-Unity5.dll</HintPath>
     </Reference>
