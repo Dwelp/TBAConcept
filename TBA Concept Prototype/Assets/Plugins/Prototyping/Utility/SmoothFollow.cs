@@ -3,9 +3,9 @@
 namespace UnityStandardAssets.Utility
 {
 	public class SmoothFollow : MonoBehaviour
-	{
-
-		// The target we are following
+    {
+#pragma warning disable 0649
+        // The target we are following
 		[SerializeField]
 		private Transform target;
 		// The distance in the x-z plane to the target

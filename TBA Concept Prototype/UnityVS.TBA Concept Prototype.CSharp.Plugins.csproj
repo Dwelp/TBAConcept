@@ -149,6 +149,7 @@
     <Compile Include="Assets\Plugins\Universe\Scripts\Universe.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\_Materials\prototype_textures\readme.txt" />
     <None Include="Assets\GameDataEditor\SampleScenes\PlaymakerReadTestScene\Resources\playmaker_readtest_data.txt" />
     <None Include="Assets\GameDataEditor\SampleScenes\PlaymakerSetDataTestScene\README.txt" />
     <None Include="Assets\GameDataEditor\SampleScenes\PlaymakerSetDataTestScene\Resources\playmaker_set_data.txt" />
@@ -177,7 +178,6 @@
     <None Include="Assets\ProCore\Prototype\Shader\pb_VertexShader.shader" />
     <None Include="Assets\ProCore\Prototype\Shader\UnlitSolidColor.shader" />
     <None Include="Assets\ProCore\Shared\About\README.txt" />
-    <None Include="Assets\prototype_textures\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>

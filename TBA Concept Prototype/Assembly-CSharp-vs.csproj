@@ -105,10 +105,14 @@
      <Compile Include="Assets\GameDataEditor\SampleScenes\GDESetDataScene\SetDataSceneBase.cs" />
      <Compile Include="Assets\GameDataEditor\SampleScenes\PlaymakerSetDataTestScene\SetDataPlaymaker.cs" />
      <Compile Include="Assets\_Scripts\AutoSingletonManager.cs" />
+     <Compile Include="Assets\_Scripts\CombatInfo.cs" />
      <Compile Include="Assets\_Scripts\CombatManager.cs" />
+     <Compile Include="Assets\_Scripts\GameEnums.cs" />
      <Compile Include="Assets\_Scripts\GameManager.cs" />
      <Compile Include="Assets\_Scripts\QTimer.cs" />
      <Compile Include="Assets\_Scripts\TestScript.cs" />
+     <Compile Include="Assets\_Scripts\UIManager.cs" />
+     <Compile Include="Assets\_Scripts\Unit.cs" />
      <Compile Include="Assets\_Scripts\UnityAnalyticsIntegration.cs" />
      <None Include="Assets\Plugins\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Plugins\Prototyping\Shaders\WorldCoordDiffuse.shader" />

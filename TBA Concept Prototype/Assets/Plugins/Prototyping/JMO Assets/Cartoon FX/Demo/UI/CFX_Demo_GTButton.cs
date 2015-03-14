@@ -13,7 +13,9 @@ public class CFX_Demo_GTButton : MonoBehaviour
 	public GameObject Receiver;
 	
 	private Rect CollisionRect;
-	private bool Over;
+
+#pragma warning disable 0169
+    private bool Over;
 	
 	//-------------------------------------------------------------
 	

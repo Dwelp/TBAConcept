@@ -17,7 +17,7 @@ namespace UnityStandardAssets.Utility
             Standalone,
             Mobile
         }
-
+#pragma warning disable 0649
         [SerializeField] private BuildTargetGroup m_BuildTargetGroup;
         [SerializeField] private GameObject[] m_Content = new GameObject[0];
         [SerializeField] private MonoBehaviour[] m_MonoBehaviours = new MonoBehaviour[0];
