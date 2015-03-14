@@ -60,7 +60,7 @@ public class UIManager : Manager<UIManager> {
             text.text = "-- Not in Combat --";
 
             text = GetLabel("TurnControllerLabel");
-            text.text = CombatManager.Instance.turnController.ToString();
+            text.transform.parent.gameObject.SetActive(false);
 
             btn = GetButton("EndTurnBtn");
             btn.gameObject.SetActive(false);
@@ -74,6 +74,10 @@ public class UIManager : Manager<UIManager> {
 
             text = GetLabel("CombatStateLabel");
             text.text = "-- In Combat -- ";
+
+            text = GetLabel("TurnControllerLabel");
+            text.transform.parent.gameObject.SetActive(true);
+            text.text = CombatManager.Instance.turnController.ToString();
 
             if (CombatManager.Instance.turnController == CombatManager.TurnController.Player)
             {

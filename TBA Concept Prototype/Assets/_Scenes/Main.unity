@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Player
-  speed: 3
+  speed: 40
   unitOwner: 1
   speedGougeReady: 0
 --- !u!4 &1653561473
@@ -1511,6 +1511,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1984878945}
   - 114: {fileID: 1984878944}
+  - 114: {fileID: 1984878946}
   m_Layer: 0
   m_Name: GameUnit_AI
   m_TagString: Unit
@@ -1526,13 +1527,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1984878943}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a85650d2536913479727d9e6619cdcf, type: 3}
+  m_Script: {fileID: 11500000, guid: 30414127d725b3344b52f86d1b8a751b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: AI Grunt
-  speed: 2
+  name: Grunt
+  speed: 30
   unitOwner: 2
   speedGougeReady: 0
+  aiBehavior: {fileID: 1984878946}
 --- !u!4 &1984878945
 Transform:
   m_ObjectHideFlags: 0
@@ -1547,6 +1549,17 @@ Transform:
   - {fileID: 388232106}
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &1984878946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1984878943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58e313fbe8b1ac54e99590ae3a8f1e23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2009170908
 GameObject:
   m_ObjectHideFlags: 0

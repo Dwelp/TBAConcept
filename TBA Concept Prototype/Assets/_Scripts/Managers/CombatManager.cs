@@ -98,9 +98,15 @@ public class CombatManager : Manager<CombatManager> {
     void StarTurn()
     {
         if (activeUnit.unitOwner == UnitOwner.Player)
+        {
             turnController = TurnController.Player;
+        }
         else
+        {
             turnController = TurnController.AI;
+
+            AIManager.Instance.HandleAITurn(activeUnit);
+        }
     }
 
     public void EndTurn()

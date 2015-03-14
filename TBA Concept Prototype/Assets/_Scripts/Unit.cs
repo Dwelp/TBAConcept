@@ -11,16 +11,16 @@ public class Unit : MonoBehaviour {
     public UnitOwner unitOwner;
 
     // -- State
-    bool initDone;
+    protected bool initDone;
     public bool speedGougeReady;
 
     // -- Info
-    float speedGouge;
+    protected float speedGouge;
 
     // --- UI
-    Canvas canvas;
+    protected Canvas canvas;
 
-    void Awake()
+    protected virtual void Awake()
     {
         canvas = transform.FindChild("Canvas").GetComponent<Canvas>();
         canvas.enabled = false;
@@ -29,12 +29,12 @@ public class Unit : MonoBehaviour {
     }
 
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () 
+    protected virtual void Update() 
     {
         if (!initDone)
             return;
