@@ -94,7 +94,7 @@ public class Unit : MonoBehaviour {
     {
         activeAction = GetAction(action);
 
-        UIManager.Instance.EnterTargetSelection(action);
+        UIManager.Instance.EnterTargetSelection(activeAction);
 
         unitState = UnitState.TargetSelection;
     }
@@ -110,12 +110,19 @@ public class Unit : MonoBehaviour {
 
     public void ValidateTarget(Vector3 pos)
     {
-        UIManager.Instance.ExitTargetSelection();
-        hasMoved = true;
+        print(Vector3.Distance(transform.position, pos));
 
-        unitState = UnitState.Active;
+        if (Vector3.Distance(transform.position, pos) <= moveRange)
+        {
+            UIManager.Instance.ExitTargetSelection();
+            hasMoved = true;
 
-        activeAction.ActivateAction(pos);
+            unitState = UnitState.Active;
+
+            activeAction.ActivateAction(pos);
+        }
+        else
+            print("OUT OF RANGE!");
     }
 
     public void ActionFinished()

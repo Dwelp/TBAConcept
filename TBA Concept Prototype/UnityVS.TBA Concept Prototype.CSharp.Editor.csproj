@@ -201,6 +201,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\_Materials\prototype_textures\readme.txt" />
+    <None Include="Assets\_Shaders\DeferredDecals\_ReadMe.txt" />
+    <None Include="Assets\_Shaders\DeferredDecals\DecalShaderDiffuseNormals.shader" />
+    <None Include="Assets\_Shaders\DeferredDecals\DecalShaderDiffuseOnly.shader" />
+    <None Include="Assets\_Shaders\DeferredDecals\DecalShaderNormalsOnly.shader" />
     <None Include="Assets\GameDataEditor\SampleScenes\PlaymakerReadTestScene\Resources\playmaker_readtest_data.txt" />
     <None Include="Assets\GameDataEditor\SampleScenes\PlaymakerSetDataTestScene\README.txt" />
     <None Include="Assets\GameDataEditor\SampleScenes\PlaymakerSetDataTestScene\Resources\playmaker_set_data.txt" />

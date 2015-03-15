@@ -11,7 +11,9 @@ public class UIManager : Manager<UIManager> {
     List<Button> uiButtons;
     List<Text> uiLabels;
     Dictionary<Unit, GameObject> unitPanels;
+
     bool inTargetSelection;
+    GameObject targetSelectionDecal;
 
     // Conditions
     public bool unitCombatUIEnabled;
@@ -42,8 +44,7 @@ public class UIManager : Manager<UIManager> {
 	void Start () 
     {
 
-	}
-	
+	}	
   
 	// Update is called once per frame
 	void Update () {
@@ -115,12 +116,23 @@ public class UIManager : Manager<UIManager> {
             
 	}
 
-    public void EnterTargetSelection(string action)
+    public void EnterTargetSelection(UnitAction action)
     {
         if (!inTargetSelection)
         {
             inTargetSelection = true;
             print("entered target selection");
+
+            Unit unit = action.UpdateActionOwner();
+            float decalRadius = unit.moveRange * 2;
+
+            targetSelectionDecal = GameObject.Instantiate(Resources.Load("MoveRangeDecal")) as GameObject;
+
+            Vector3 pos = unit.transform.position;
+            pos.y = 0;
+
+            targetSelectionDecal.transform.position = pos;
+            targetSelectionDecal.transform.localScale = new Vector3(decalRadius, 1, decalRadius);
         }
     }
 
@@ -130,6 +142,8 @@ public class UIManager : Manager<UIManager> {
         {
             inTargetSelection = false;
             print("exit target selection");
+
+            Destroy(targetSelectionDecal);
         }
     }
 

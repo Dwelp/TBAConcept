@@ -49,8 +49,10 @@ public class UnitAction : MonoBehaviour {
 
     }
 
-    protected void UpdateActionOwner()
+    public Unit UpdateActionOwner()
     {
         actionOwner = transform.parent.gameObject.GetComponent<Unit>();
+
+        return actionOwner;
     }
 }
