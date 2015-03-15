@@ -28,7 +28,7 @@ public class SimpleBehavior : AIBehavior {
     protected override IEnumerator CProcessTurn()
     {
         print("AI Behavior is being handled");
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         AIManager.Instance.EndAITurn();
         yield return null;
     }

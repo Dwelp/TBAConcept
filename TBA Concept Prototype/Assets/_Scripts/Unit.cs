@@ -7,8 +7,17 @@ using System.Linq;
 public class Unit : MonoBehaviour {
 
     public string name;
-    public float speed;
     public UnitOwner unitOwner;
+
+    // -- Unit Stats
+    public float speed;
+    public float moveRange;
+
+    // -- Actions
+    bool hasMoved;
+
+    // -- Pathfinding
+    NavMeshAgent agent;
 
     // -- State
     protected bool initDone;
@@ -25,12 +34,12 @@ public class Unit : MonoBehaviour {
         canvas = transform.FindChild("Canvas").GetComponent<Canvas>();
         canvas.enabled = false;
 
-        initDone = true;
+        agent = GetComponent<NavMeshAgent>();
     }
 
 	// Use this for initialization
 	protected virtual void Start () {
-	
+        initDone = true;
 	}
 	
 	// Update is called once per frame
@@ -57,6 +66,17 @@ public class Unit : MonoBehaviour {
     {
         speedGouge = 0;
         speedGougeReady = false;
+    }
+
+    // Actions 
+
+
+
+
+    // Pathfinding
+    public NavMeshAgent GetNavAgent()
+    {
+        return agent;
     }
 
     // UI

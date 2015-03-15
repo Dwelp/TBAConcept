@@ -107,6 +107,7 @@
      <Compile Include="Assets\_Scripts\AI\AIBehavior.cs" />
      <Compile Include="Assets\_Scripts\AI\AIUnit.cs" />
      <Compile Include="Assets\_Scripts\AI\SimpleBehavior.cs" />
+     <Compile Include="Assets\_Scripts\Actions\UnitAction.cs" />
      <Compile Include="Assets\_Scripts\Camera\LookAtCamera.cs" />
      <Compile Include="Assets\_Scripts\CombatInfo.cs" />
      <Compile Include="Assets\_Scripts\GameEnums.cs" />
@@ -114,11 +115,13 @@
      <Compile Include="Assets\_Scripts\Managers\AutoSingletonManager.cs" />
      <Compile Include="Assets\_Scripts\Managers\CombatManager.cs" />
      <Compile Include="Assets\_Scripts\Managers\GameManager.cs" />
+     <Compile Include="Assets\_Scripts\Managers\InputManager.cs" />
      <Compile Include="Assets\_Scripts\Managers\UIManager.cs" />
      <Compile Include="Assets\_Scripts\Unit.cs" />
      <Compile Include="Assets\_Scripts\Utils\DebugX.cs" />
      <Compile Include="Assets\_Scripts\Utils\QTimer.cs" />
      <Compile Include="Assets\_Scripts\Utils\UnityAnalyticsIntegration.cs" />
+     <Compile Include="Assets\_Scripts\Utils\Utilities.cs" />
      <None Include="Assets\Plugins\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Plugins\Prototyping\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\ProCore\Prototype\About\changelog.txt" />
@@ -155,6 +158,9 @@
  <Reference Include="UnityEngine.Cloud.Analytics.Util">
  <HintPath>F:/GameDEV/TBAConcept/TBA Concept Prototype/Assets/Plugins/UnityEngine.Cloud.Analytics.Util.dll</HintPath>
  </Reference>
+ <Reference Include="Vectrosity">
+ <HintPath>F:/GameDEV/TBAConcept/TBA Concept Prototype/Assets/Plugins/Vectrosity.dll</HintPath>
+ </Reference>
  <Reference Include="DOTween">
  <HintPath>F:/GameDEV/TBAConcept/TBA Concept Prototype/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
@@ -164,20 +170,17 @@
  <Reference Include="DOTween46">
  <HintPath>F:/GameDEV/TBAConcept/TBA Concept Prototype/Assets/Plugins/Demigiant/DOTween/DOTween46.dll</HintPath>
  </Reference>
- <Reference Include="ProCore">
- <HintPath>F:/GameDEV/TBAConcept/TBA Concept Prototype/Assets/ProCore/Shared/Code/ProCore.dll</HintPath>
+ <Reference Include="ProBuilderCore-Unity5">
+ <HintPath>F:/GameDEV/TBAConcept/TBA Concept Prototype/Assets/ProCore/Prototype/Classes/ProBuilderCore-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderMeshOps-Unity5">
  <HintPath>F:/GameDEV/TBAConcept/TBA Concept Prototype/Assets/ProCore/Prototype/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
  </Reference>
- <Reference Include="ProBuilderCore-Unity5">
- <HintPath>F:/GameDEV/TBAConcept/TBA Concept Prototype/Assets/ProCore/Prototype/Classes/ProBuilderCore-Unity5.dll</HintPath>
+ <Reference Include="ProCore">
+ <HintPath>F:/GameDEV/TBAConcept/TBA Concept Prototype/Assets/ProCore/Shared/Code/ProCore.dll</HintPath>
  </Reference>
  <Reference Include="pb_Profiler">
  <HintPath>F:/GameDEV/TBAConcept/TBA Concept Prototype/Assets/ProCore/Shared/pb_Profiler/pb_Profiler.dll</HintPath>
- </Reference>
- <Reference Include="Vectrosity">
- <HintPath>F:/GameDEV/TBAConcept/TBA Concept Prototype/Assets/Plugins/Vectrosity.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

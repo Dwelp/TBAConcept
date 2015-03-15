@@ -7,10 +7,7 @@ public class AIUnit : Unit {
 
     protected override void Awake()
     {
-        canvas = transform.FindChild("Canvas").GetComponent<Canvas>();
-        canvas.enabled = false;
-
-        initDone = true;
+        base.Awake();
     }
 
 	// Use this for initialization

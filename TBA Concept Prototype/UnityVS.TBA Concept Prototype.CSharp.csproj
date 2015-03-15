@@ -151,6 +151,7 @@
     <Compile Include="Assets\_Scripts\AI\AIBehavior.cs" />
     <Compile Include="Assets\_Scripts\AI\AIUnit.cs" />
     <Compile Include="Assets\_Scripts\AI\SimpleBehavior.cs" />
+    <Compile Include="Assets\_Scripts\Actions\UnitAction.cs" />
     <Compile Include="Assets\_Scripts\Camera\LookAtCamera.cs" />
     <Compile Include="Assets\_Scripts\CombatInfo.cs" />
     <Compile Include="Assets\_Scripts\GameEnums.cs" />
@@ -158,11 +159,13 @@
     <Compile Include="Assets\_Scripts\Managers\AutoSingletonManager.cs" />
     <Compile Include="Assets\_Scripts\Managers\CombatManager.cs" />
     <Compile Include="Assets\_Scripts\Managers\GameManager.cs" />
+    <Compile Include="Assets\_Scripts\Managers\InputManager.cs" />
     <Compile Include="Assets\_Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\_Scripts\Unit.cs" />
     <Compile Include="Assets\_Scripts\Utils\DebugX.cs" />
     <Compile Include="Assets\_Scripts\Utils\QTimer.cs" />
     <Compile Include="Assets\_Scripts\Utils\UnityAnalyticsIntegration.cs" />
+    <Compile Include="Assets\_Scripts\Utils\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\_Materials\prototype_textures\readme.txt" />
