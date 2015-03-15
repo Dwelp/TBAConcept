@@ -16,10 +16,10 @@ public class Unit : MonoBehaviour {
 
     // -- Actions
     public bool hasMoved;
-    UnitAction activeAction;
+    protected UnitAction activeAction;
 
     // -- Pathfinding
-    NavMeshAgent agent;
+    protected NavMeshAgent agent;
 
     // -- State
     protected bool initDone;
@@ -110,7 +110,7 @@ public class Unit : MonoBehaviour {
 
     public void ValidateTarget(Vector3 pos)
     {
-        print(Vector3.Distance(transform.position, pos));
+        //print(Vector3.Distance(transform.position, pos));
 
         if (Vector3.Distance(transform.position, pos) <= moveRange)
         {
@@ -122,11 +122,14 @@ public class Unit : MonoBehaviour {
             activeAction.ActivateAction(pos);
         }
         else
-            print("OUT OF RANGE!");
+        {
+            //print("OUT OF RANGE!");
+        }
     }
 
-    public void ActionFinished()
+    public virtual void ActionFinished()
     {
+        UIManager.Instance.ExitTargetSelection();
         activeAction = null;
     }
 

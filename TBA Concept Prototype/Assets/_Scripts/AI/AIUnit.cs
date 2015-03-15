@@ -21,4 +21,12 @@ public class AIUnit : Unit {
     {
         base.Update();
 	}
+
+    public override void ActionFinished()
+    {
+        aiBehavior.ActionFinished(activeAction);
+
+        UIManager.Instance.ExitTargetSelection();
+        activeAction = null;
+    }
 }

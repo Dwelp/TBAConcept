@@ -121,7 +121,7 @@ public class UIManager : Manager<UIManager> {
         if (!inTargetSelection)
         {
             inTargetSelection = true;
-            print("entered target selection");
+            //print("entered target selection");
 
             Unit unit = action.UpdateActionOwner();
             float decalRadius = unit.moveRange * 2;
@@ -141,7 +141,7 @@ public class UIManager : Manager<UIManager> {
         if (inTargetSelection)
         {
             inTargetSelection = false;
-            print("exit target selection");
+            //print("exit target selection");
 
             Destroy(targetSelectionDecal);
         }
