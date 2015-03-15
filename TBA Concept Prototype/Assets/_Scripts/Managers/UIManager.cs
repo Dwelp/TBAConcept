@@ -11,6 +11,7 @@ public class UIManager : Manager<UIManager> {
     List<Button> uiButtons;
     List<Text> uiLabels;
     Dictionary<Unit, GameObject> unitPanels;
+    bool inTargetSelection;
 
     // Conditions
     public bool unitCombatUIEnabled;
@@ -48,6 +49,7 @@ public class UIManager : Manager<UIManager> {
 	void Update () {
         Text text;
         Button btn;
+        Unit activeUnit;
 
         if (!GameManager.Instance.IsInCombat())
         {
@@ -64,10 +66,14 @@ public class UIManager : Manager<UIManager> {
 
             btn = GetButton("EndTurnBtn");
             btn.gameObject.SetActive(false);
+
+            btn = GetButton("MoveBtn");
+            btn.gameObject.SetActive(false);
         }            
         else
         {
             unitCombatUIEnabled = true;
+            activeUnit = CombatManager.Instance.GetActiveUnit();
 
             text = GetButton("CombatBtn").transform.FindChild("Text").GetComponent<Text>();
             text.text = "End Combat";
@@ -83,15 +89,49 @@ public class UIManager : Manager<UIManager> {
             {
                 btn = GetButton("EndTurnBtn");
                 btn.gameObject.SetActive(true);
+
+                if(!activeUnit.hasMoved)
+                {
+                    btn = GetButton("MoveBtn");
+                    btn.gameObject.SetActive(true);
+                    btn.interactable = true;
+                }
+                else
+                {
+                    btn = GetButton("MoveBtn");
+                    btn.gameObject.SetActive(true);
+                    btn.interactable = false;
+                }
             }
             else
             {
                 btn = GetButton("EndTurnBtn");
                 btn.gameObject.SetActive(false);
+
+                btn = GetButton("MoveBtn");
+                btn.gameObject.SetActive(false);
             }
         }
             
 	}
+
+    public void EnterTargetSelection(string action)
+    {
+        if (!inTargetSelection)
+        {
+            inTargetSelection = true;
+            print("entered target selection");
+        }
+    }
+
+    public void ExitTargetSelection()
+    {
+        if (inTargetSelection)
+        {
+            inTargetSelection = false;
+            print("exit target selection");
+        }
+    }
 
     void OnClickButton(Button btn)
     {
@@ -105,6 +145,12 @@ public class UIManager : Manager<UIManager> {
 
             case "EndTurnBtn":
                 CombatManager.Instance.EndTurn();
+                break;
+
+            // Actions
+
+            case "MoveBtn":
+                CombatManager.Instance.UseActionButton(btn.name);
                 break;
         }
     }

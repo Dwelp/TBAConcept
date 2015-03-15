@@ -8,19 +8,22 @@ public class Unit : MonoBehaviour {
 
     public string name;
     public UnitOwner unitOwner;
-
+    public List<UnitAction> unitActions;
+    
     // -- Unit Stats
     public float speed;
     public float moveRange;
 
     // -- Actions
-    bool hasMoved;
+    public bool hasMoved;
+    UnitAction activeAction;
 
     // -- Pathfinding
     NavMeshAgent agent;
 
     // -- State
     protected bool initDone;
+    public UnitState unitState;
     public bool speedGougeReady;
 
     // -- Info
@@ -33,6 +36,10 @@ public class Unit : MonoBehaviour {
     {
         canvas = transform.FindChild("Canvas").GetComponent<Canvas>();
         canvas.enabled = false;
+        unitState = UnitState.NotReady;
+
+        unitActions = transform.FindChild("UnitActions").GetComponents<UnitAction>().ToList();
+        print("actions: " + unitActions.Count);
 
         agent = GetComponent<NavMeshAgent>();
     }
@@ -59,6 +66,7 @@ public class Unit : MonoBehaviour {
         if(speedGouge == 100)
         {
             speedGougeReady = true;
+            unitState = UnitState.Ready;
         }
     }
 
@@ -66,11 +74,59 @@ public class Unit : MonoBehaviour {
     {
         speedGouge = 0;
         speedGougeReady = false;
+        unitState = UnitState.NotReady;
+    }
+
+    public void TurnStarted()
+    {
+        unitState = UnitState.Active;
+        hasMoved = false;
+    }
+
+    public void TurnEnded()
+    {
+        unitState = UnitState.NotReady;
     }
 
     // Actions 
 
+    public void ActivateAction(string action)
+    {
+        activeAction = GetAction(action);
 
+        UIManager.Instance.EnterTargetSelection(action);
+
+        unitState = UnitState.TargetSelection;
+    }
+
+    public void DeactivateAction()
+    {
+        activeAction = null;
+
+        UIManager.Instance.ExitTargetSelection();
+
+        unitState = UnitState.Active;
+    }
+
+    public void ValidateTarget(Vector3 pos)
+    {
+        UIManager.Instance.ExitTargetSelection();
+        hasMoved = true;
+
+        unitState = UnitState.Active;
+
+        activeAction.ActivateAction(pos);
+    }
+
+    public void ActionFinished()
+    {
+        activeAction = null;
+    }
+
+    UnitAction GetAction(string action)
+    {
+        return unitActions.Find(p => p.actionName == action);
+    }
 
 
     // Pathfinding

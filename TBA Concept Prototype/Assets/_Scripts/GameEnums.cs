@@ -14,6 +14,14 @@ public enum GameButtons
     GameBtn,
 }
 
+public enum UnitState
+{
+    NotReady,
+    Ready,
+    Active,
+    TargetSelection
+}
+
 public static class GameEnums {
 
 

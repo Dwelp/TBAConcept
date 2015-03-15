@@ -100,6 +100,8 @@ public class CombatManager : Manager<CombatManager> {
         if (activeUnit.unitOwner == UnitOwner.Player)
         {
             turnController = TurnController.Player;
+
+            activeUnit.TurnStarted();
         }
         else
         {
@@ -111,9 +113,32 @@ public class CombatManager : Manager<CombatManager> {
 
     public void EndTurn()
     {
+        activeUnit.TurnEnded();
         activeUnit.ResetSpeedGouge();
         activeUnit = null;
         turnController = TurnController.None;
         combatState = CombatState.PassTime;
+    }
+
+    // Actions
+
+    public void UseActionButton(string button)
+    {
+        switch(button)
+        {
+            case "MoveBtn":
+                if(activeUnit.unitOwner == UnitOwner.Player)
+                {
+                    activeUnit.ActivateAction("Move");
+                }
+                break;
+        }
+    }
+
+    // References
+
+    public Unit GetActiveUnit()
+    {
+        return activeUnit;
     }
 }

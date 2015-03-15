@@ -151,6 +151,7 @@
     <Compile Include="Assets\_Scripts\AI\AIBehavior.cs" />
     <Compile Include="Assets\_Scripts\AI\AIUnit.cs" />
     <Compile Include="Assets\_Scripts\AI\SimpleBehavior.cs" />
+    <Compile Include="Assets\_Scripts\Actions\UA_Move.cs" />
     <Compile Include="Assets\_Scripts\Actions\UnitAction.cs" />
     <Compile Include="Assets\_Scripts\Camera\LookAtCamera.cs" />
     <Compile Include="Assets\_Scripts\CombatInfo.cs" />
