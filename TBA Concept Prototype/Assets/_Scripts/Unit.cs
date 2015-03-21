@@ -6,6 +6,7 @@ using System.Linq;
 
 public class Unit : MonoBehaviour {
 
+    public string objectID;
     public string name;
     public UnitOwner unitOwner;
     public List<UnitAction> unitActions;
@@ -27,6 +28,7 @@ public class Unit : MonoBehaviour {
     protected bool initDone;
     public UnitState unitState;
     public bool speedGougeReady;
+    public GameObject DeathGFX;
 
     // -- Info
     protected float speedGouge;
@@ -61,6 +63,8 @@ public class Unit : MonoBehaviour {
             return;
 
         UpdateUI();
+
+        UpdateState();
 	}
 
     public void UpdateSpeedGouge(float amount)
@@ -91,6 +95,38 @@ public class Unit : MonoBehaviour {
     public void TurnEnded()
     {
         unitState = UnitState.NotReady;
+    }
+
+    // Unit State
+
+    public void UpdateState()
+    {
+        if(currentHealth <= 0)
+        {
+            KillUnit();
+        }
+    }
+
+    protected void KillUnit()
+    {
+        StartCoroutine(CKillUnit());
+    }
+
+    protected IEnumerator CKillUnit()
+    {
+        CombatManager.Instance.UnitDied(this);
+        gameObject.SetActive(false);
+
+        GameObject obj = ParticleSystem.Instantiate(DeathGFX);
+        obj.transform.position = transform.position;
+        ParticleSystem particleSystem = obj.GetComponent<ParticleSystem>();
+        particleSystem.startSize *= 2;
+        particleSystem.Play();
+
+        //yield return new WaitForSeconds(particleSystem.duration);
+
+        Destroy(gameObject);
+        yield return null;
     }
 
     // Actions 
@@ -146,7 +182,13 @@ public class Unit : MonoBehaviour {
     {
         return activeAction;
     }
-    
+
+    public void DoDamage(float amount)
+    {
+        currentHealth -= amount;
+        currentHealth = Mathf.Max(0, currentHealth);
+    }
+
     // Pathfinding
     public NavMeshAgent GetNavAgent()
     {

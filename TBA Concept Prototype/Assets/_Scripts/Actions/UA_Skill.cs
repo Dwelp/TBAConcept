@@ -9,6 +9,7 @@ public class UA_Skill : UnitAction {
     public bool canCombo;
 
     public GameObject skillGFX;
+    public ActionEffect actionEffect;
 
     protected override void Awake()
     {

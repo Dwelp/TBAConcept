@@ -11,4 +11,15 @@ public class CombatInfo {
     {
         combatUnits = new List<Unit>();
     }    
+
+    public bool RemoveUnit(Unit unit)
+    {
+        if (combatUnits.Find(p => p.GetInstanceID() == unit.GetInstanceID()))
+        {
+            combatUnits.Remove(unit);
+            return true;
+        }
+        else
+            return false;
+    }
 }

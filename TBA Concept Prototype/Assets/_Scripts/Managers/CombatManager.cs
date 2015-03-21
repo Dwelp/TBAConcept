@@ -77,6 +77,8 @@ public class CombatManager : Manager<CombatManager> {
 
     bool CheckForReadyUnits()
     {
+        readyUnits.RemoveAll(p => p == null);
+
         if(readyUnits.Count > 0)
         {
             SetupTurn(readyUnits[0]);
@@ -118,6 +120,13 @@ public class CombatManager : Manager<CombatManager> {
         activeUnit = null;
         turnController = TurnController.None;
         combatState = CombatState.PassTime;
+    }
+
+    // Unit States
+
+    public void UnitDied(Unit unit)
+    {
+        print("Unit died " + unit.name);
     }
 
     // Actions

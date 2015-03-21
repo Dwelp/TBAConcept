@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class UA_Attack1 : UA_Skill {
 
@@ -51,6 +52,16 @@ public class UA_Attack1 : UA_Skill {
         ParticleSystem particleSystem = obj.GetComponent<ParticleSystem>();
         particleSystem.startSize *= 2;
         particleSystem.Play();
+
+        List<Unit> registeredTargets = targetSelectionDecalObject.RegisteredUnits;
+
+        foreach(Unit target in registeredTargets)
+        {
+            if (target.GetInstanceID() == actionOwner.GetInstanceID())
+                continue;
+
+            target.DoDamage(actionEffect.damage);
+        }
 
         yield return new WaitForSeconds(particleSystem.duration);
 

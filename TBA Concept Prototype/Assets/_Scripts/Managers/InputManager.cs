@@ -22,7 +22,7 @@ public class InputManager : Manager<InputManager> {
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 pos = Utilities.GetMouseWorldLocation();
-            print(Utilities.GetMouseHitObject().name);
+            //print(Utilities.GetMouseHitObject().name);
             //DebugX.DrawPoint(pos, Color.red, 0.5f, 1.0f);
 
             //Unit[] units = GameObject.FindObjectsOfType<Unit>();

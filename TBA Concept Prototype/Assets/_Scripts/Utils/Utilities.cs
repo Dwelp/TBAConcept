@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public static class Utilities {
 
@@ -66,5 +67,10 @@ public static class Utilities {
     public static bool InRange(float numberToCheck, float bottom, float top)
     {
         return (numberToCheck > bottom && numberToCheck < top);
+    }
+
+    public static string GenerateID()
+    {
+        return Guid.NewGuid().ToString("N");
     }
 }
