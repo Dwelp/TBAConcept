@@ -132,6 +132,13 @@ public class CombatManager : Manager<CombatManager> {
                     activeUnit.ActivateAction("Move");
                 }
                 break;
+
+            case "AttackBtn1":
+                if (activeUnit.unitOwner == UnitOwner.Player)
+                {
+                    activeUnit.ActivateAction("Attack1");
+                }
+                break;
         }
     }
 

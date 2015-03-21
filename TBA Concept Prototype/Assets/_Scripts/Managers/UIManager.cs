@@ -13,7 +13,7 @@ public class UIManager : Manager<UIManager> {
     Dictionary<Unit, GameObject> unitPanels;
 
     bool inTargetSelection;
-    GameObject targetSelectionDecal;
+    TargetSelectionDecalObject tsDecalObject;
 
     // Conditions
     public bool unitCombatUIEnabled;
@@ -113,7 +113,18 @@ public class UIManager : Manager<UIManager> {
                 btn.gameObject.SetActive(false);
             }
         }
-            
+
+        if(inTargetSelection)
+        {
+            if(tsDecalObject.targetSelectionDecal.followMouse)
+            {
+                Vector3 mousePos = Utilities.GetMouseWorldLocation();
+                mousePos.y = transform.position.y;
+                tsDecalObject.transform.LookAt(mousePos);
+                //Vector3 currentRot = tsDecalObject.transform.rotation.eulerAngles;
+
+            }
+        }            
 	}
 
     public void EnterTargetSelection(UnitAction action)
@@ -123,16 +134,7 @@ public class UIManager : Manager<UIManager> {
             inTargetSelection = true;
             //print("entered target selection");
 
-            Unit unit = action.UpdateActionOwner();
-            float decalRadius = unit.moveRange * 2;
-
-            targetSelectionDecal = GameObject.Instantiate(Resources.Load("MoveRangeDecal")) as GameObject;
-
-            Vector3 pos = unit.transform.position;
-            pos.y = 0;
-
-            targetSelectionDecal.transform.position = pos;
-            targetSelectionDecal.transform.localScale = new Vector3(decalRadius, 1, decalRadius);
+            tsDecalObject = action.CrateTSDecal();
         }
     }
 
@@ -143,7 +145,7 @@ public class UIManager : Manager<UIManager> {
             inTargetSelection = false;
             //print("exit target selection");
 
-            Destroy(targetSelectionDecal);
+            Destroy(tsDecalObject.gameObject);
         }
     }
 
@@ -164,6 +166,10 @@ public class UIManager : Manager<UIManager> {
             // Actions
 
             case "MoveBtn":
+                CombatManager.Instance.UseActionButton(btn.name);
+                break;
+
+            case "AttackBtn1":
                 CombatManager.Instance.UseActionButton(btn.name);
                 break;
         }

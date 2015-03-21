@@ -107,8 +107,13 @@
      <Compile Include="Assets\_Scripts\AI\AIBehavior.cs" />
      <Compile Include="Assets\_Scripts\AI\AIUnit.cs" />
      <Compile Include="Assets\_Scripts\AI\SimpleBehavior.cs" />
+     <Compile Include="Assets\_Scripts\Actions\TargetSelectionDecal.cs" />
+     <Compile Include="Assets\_Scripts\Actions\TargetSelectionDecalObject.cs" />
+     <Compile Include="Assets\_Scripts\Actions\UA_Attack1.cs" />
      <Compile Include="Assets\_Scripts\Actions\UA_Move.cs" />
+     <Compile Include="Assets\_Scripts\Actions\UA_Skill.cs" />
      <Compile Include="Assets\_Scripts\Actions\UnitAction.cs" />
+     <Compile Include="Assets\_Scripts\Camera\GameCamera.cs" />
      <Compile Include="Assets\_Scripts\Camera\LookAtCamera.cs" />
      <Compile Include="Assets\_Scripts\CombatInfo.cs" />
      <Compile Include="Assets\_Scripts\GameEnums.cs" />

@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UA_Move : UnitAction {
-
-    Vector3 movePos;
+public class UA_Attack1 : UA_Skill {
 
     protected override void Awake()
     {
@@ -19,9 +17,9 @@ public class UA_Move : UnitAction {
     // Update is called once per frame
     protected override void Update()
     {
-        if(actionState == ActionState.InProgress)
+        if (actionState == ActionState.InProgress)
         {
-            if(actionOwner.GetNavAgent().remainingDistance < 0.5f)
+            if (actionOwner.GetNavAgent().remainingDistance < 0.5f)
             {
                 EndAction();
             }
@@ -30,16 +28,12 @@ public class UA_Move : UnitAction {
 
     public override void ActivateAction(Vector3 targetPos)
     {
-        movePos = targetPos;
         DoAction();
     }
 
     protected override void DoAction()
     {
         UpdateActionOwner();
-
-        DebugX.DrawPoint(movePos, Color.red, 0.5f, 1.0f);
-        actionOwner.GetNavAgent().SetDestination(movePos);
 
         actionState = ActionState.InProgress;
         print("move action STARTED on " + actionOwner);
@@ -51,19 +45,5 @@ public class UA_Move : UnitAction {
         print("move action ENDED on " + actionOwner);
 
         actionOwner.ActionFinished();
-    }
-
-    public override float GetTSDecalSize()
-    {
-        UpdateActionOwner();
-
-        return actionOwner.moveRange * 2;
-    }
-
-    public override TargetSelectionDecalObject CrateTSDecal()
-    {
-        UpdateActionOwner();
-
-        return targetSelectionDecal.CreateTSDecal(GetTSDecalSize(), actionOwner);
     }
 }

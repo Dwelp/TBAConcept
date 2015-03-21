@@ -16,6 +16,7 @@ public class UnitAction : MonoBehaviour {
     protected Unit actionOwner;
 
     protected ActionState actionState;
+    public TargetSelectionDecal targetSelectionDecal;
 
     protected virtual void Awake()
     {
@@ -54,5 +55,15 @@ public class UnitAction : MonoBehaviour {
         actionOwner = transform.parent.gameObject.GetComponent<Unit>();
 
         return actionOwner;
+    }
+
+    public virtual float GetTSDecalSize()
+    {
+        return 0;
+    }
+
+    public virtual TargetSelectionDecalObject CrateTSDecal()
+    {
+        return null;
     }
 }

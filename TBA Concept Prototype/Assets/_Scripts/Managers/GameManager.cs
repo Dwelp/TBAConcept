@@ -50,6 +50,12 @@ public class GameManager : Manager<GameManager>
             EndCombat();
     }
 
+    public GameCamera GetGameCamera()
+    {
+        GameCamera gameCamera = Camera.main.gameObject.GetComponent<GameCamera>();
+
+        return gameCamera;
+    }
 }
 
 
