@@ -8,6 +8,8 @@ public class UA_Skill : UnitAction {
     public bool allowCombo;
     public bool canCombo;
 
+    public GameObject skillGFX;
+
     protected override void Awake()
     {
 
@@ -39,13 +41,11 @@ public class UA_Skill : UnitAction {
     {
         UpdateActionOwner();
 
-        return actionOwner.moveRange * 2;
+        return targetSelectionDecal.decalSize;
     }
 
     public override TargetSelectionDecalObject CrateTSDecal()
     {
-        UpdateActionOwner();
-
-        return targetSelectionDecal.CreateTSDecal(GetTSDecalSize(), actionOwner);
+        return base.CrateTSDecal();
     }
 }

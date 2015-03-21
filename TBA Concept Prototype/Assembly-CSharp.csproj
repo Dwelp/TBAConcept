@@ -123,6 +123,7 @@
      <Compile Include="Assets\_Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\_Scripts\Managers\InputManager.cs" />
      <Compile Include="Assets\_Scripts\Managers\UIManager.cs" />
+     <Compile Include="Assets\_Scripts\UI\HealthBar.cs" />
      <Compile Include="Assets\_Scripts\Unit.cs" />
      <Compile Include="Assets\_Scripts\Utils\DebugX.cs" />
      <Compile Include="Assets\_Scripts\Utils\QTimer.cs" />

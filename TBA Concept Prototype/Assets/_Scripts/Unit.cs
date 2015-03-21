@@ -13,6 +13,8 @@ public class Unit : MonoBehaviour {
     // -- Unit Stats
     public float speed;
     public float moveRange;
+    public float maxHealth;
+    public float currentHealth; 
 
     // -- Actions
     public bool hasMoved;
@@ -42,6 +44,9 @@ public class Unit : MonoBehaviour {
         print("actions: " + unitActions.Count);
 
         agent = GetComponent<NavMeshAgent>();
+
+        // Stats
+        currentHealth = maxHealth;
     }
 
 	// Use this for initialization
@@ -108,23 +113,22 @@ public class Unit : MonoBehaviour {
         unitState = UnitState.Active;
     }
 
-    public void ValidateTarget(Vector3 pos)
+    public virtual void ValidatedActionTarget(Vector3 targetPos)
     {
-        //print(Vector3.Distance(transform.position, pos));
+        UIManager.Instance.ExitTargetSelection();
+        unitState = UnitState.Active;
 
-        if (Vector3.Distance(transform.position, pos) <= moveRange)
-        {
-            UIManager.Instance.ExitTargetSelection();
-            hasMoved = true;
+        activeAction.ActivateAction(targetPos);
+    }
 
-            unitState = UnitState.Active;
+    public virtual void ValidatedMoveLocation(Vector3 movePos)
+    {
+        hasMoved = true;
 
-            activeAction.ActivateAction(pos);
-        }
-        else
-        {
-            //print("OUT OF RANGE!");
-        }
+        UIManager.Instance.ExitTargetSelection();
+        unitState = UnitState.Active;
+
+        activeAction.ActivateAction(movePos);
     }
 
     public virtual void ActionFinished()
@@ -138,7 +142,11 @@ public class Unit : MonoBehaviour {
         return unitActions.Find(p => p.actionName == action);
     }
 
-
+    public UnitAction GetActiveAction()
+    {
+        return activeAction;
+    }
+    
     // Pathfinding
     public NavMeshAgent GetNavAgent()
     {

@@ -62,8 +62,20 @@ public class UA_Move : UnitAction {
 
     public override TargetSelectionDecalObject CrateTSDecal()
     {
-        UpdateActionOwner();
+        return base.CrateTSDecal();
+    }
 
-        return targetSelectionDecal.CreateTSDecal(GetTSDecalSize(), actionOwner);
+    public override bool ValidateTarget(Vector3 targetPos)
+    {
+        if (Vector3.Distance(transform.position, targetPos) <= actionOwner.moveRange)
+        {
+            actionOwner.ValidatedMoveLocation(targetPos);
+            return true;
+        }
+        else
+        {
+            //print("OUT OF RANGE!");
+            return false;
+        }
     }
 }

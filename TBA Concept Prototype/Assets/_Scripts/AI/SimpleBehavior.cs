@@ -45,7 +45,9 @@ public class SimpleBehavior : AIBehavior {
 
         yield return new WaitForSeconds(2);
 
-        unit.ValidateTarget(movePoint);
+        UnitAction action = unit.GetActiveAction();
+        if(action != null)
+            action.ValidateTarget(movePoint);
 
         waitingForAction = true;
         yield return StartCoroutine(WaitForAction());

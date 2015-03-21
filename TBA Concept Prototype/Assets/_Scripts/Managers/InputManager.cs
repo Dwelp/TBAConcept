@@ -35,7 +35,9 @@ public class InputManager : Manager<InputManager> {
 
                 if (unit.unitState == UnitState.TargetSelection)
                 {
-                    unit.ValidateTarget(pos);
+                    UnitAction action = unit.GetActiveAction();
+                    if (action != null)
+                        action.ValidateTarget(pos);
                 }
             }
         }

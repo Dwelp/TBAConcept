@@ -38,6 +38,9 @@ public class GameCamera : MonoBehaviour {
             isPanning = false;
         }
 
+        float mouseWheel = Input.GetAxis("Mouse ScrollWheel");
+        DoCameraZoom(mouseWheel);
+
         UpdateCameraPosition();
     }
 
@@ -67,10 +70,10 @@ public class GameCamera : MonoBehaviour {
 
     void UpdateCameraZoom(float dir)
     {
-        currentZoom = gameCamera.orthographicSize;
+        currentZoom = gameCamera.transform.position.y;
 
         float newZoom = currentZoom + (-dir * zoomSpeed);
-        gameCamera.orthographicSize = newZoom;
+        gameCamera.transform.position = new Vector3(gameCamera.transform.position.x, newZoom, gameCamera.transform.position.z);
     }
 
     public void TogglePanning(bool toggle)

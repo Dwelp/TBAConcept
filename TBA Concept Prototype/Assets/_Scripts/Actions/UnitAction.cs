@@ -17,6 +17,7 @@ public class UnitAction : MonoBehaviour {
 
     protected ActionState actionState;
     public TargetSelectionDecal targetSelectionDecal;
+    public TargetSelectionDecalObject targetSelectionDecalObject;
 
     protected virtual void Awake()
     {
@@ -42,8 +43,14 @@ public class UnitAction : MonoBehaviour {
 
     protected virtual void DoAction()
     {
-
+        StartCoroutine(ProcessAction());
     }    
+
+    protected virtual IEnumerator ProcessAction()
+    {
+        EndAction();
+        yield return null;
+    }
 
     protected virtual void EndAction()
     {
@@ -64,6 +71,15 @@ public class UnitAction : MonoBehaviour {
 
     public virtual TargetSelectionDecalObject CrateTSDecal()
     {
-        return null;
+        UpdateActionOwner();
+
+        targetSelectionDecalObject = targetSelectionDecal.CreateTSDecal(GetTSDecalSize(), actionOwner);
+        return targetSelectionDecalObject;
+    }
+
+    public virtual bool ValidateTarget(Vector3 targetPos)
+    {
+        actionOwner.ValidatedActionTarget(targetPos);
+        return true;
     }
 }

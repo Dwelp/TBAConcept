@@ -36,13 +36,32 @@ public class UA_Attack1 : UA_Skill {
         UpdateActionOwner();
 
         actionState = ActionState.InProgress;
-        print("move action STARTED on " + actionOwner);
+        print("Started Action: " + actionName + " on " + actionOwner);
+
+        StartCoroutine(ProcessAction());
+    }
+
+    protected override IEnumerator ProcessAction()
+    {
+        GameObject obj = ParticleSystem.Instantiate(skillGFX);
+
+        if (targetSelectionDecalObject != null)
+            obj.transform.position = targetSelectionDecalObject.GFXSlot.transform.position;
+                
+        ParticleSystem particleSystem = obj.GetComponent<ParticleSystem>();
+        particleSystem.startSize *= 2;
+        particleSystem.Play();
+
+        yield return new WaitForSeconds(particleSystem.duration);
+
+        EndAction();
+        yield return null;
     }
 
     protected override void EndAction()
     {
         actionState = ActionState.None;
-        print("move action ENDED on " + actionOwner);
+        print("Finished Action: " + actionName + " on " + actionOwner);
 
         actionOwner.ActionFinished();
     }
