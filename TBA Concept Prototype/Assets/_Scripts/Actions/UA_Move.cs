@@ -47,10 +47,7 @@ public class UA_Move : UnitAction {
 
     protected override void EndAction()
     {
-        actionState = ActionState.None;
-        print("move action ENDED on " + actionOwner);
-
-        actionOwner.ActionFinished();
+        base.EndAction();
     }
 
     public override float GetTSDecalSize()
@@ -77,5 +74,10 @@ public class UA_Move : UnitAction {
             //print("OUT OF RANGE!");
             return false;
         }
+    }
+
+    public override bool CanBeUsed()
+    {
+        return true;
     }
 }

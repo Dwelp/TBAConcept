@@ -3,11 +3,6 @@ using System.Collections;
 
 public class UA_Skill : UnitAction {
 
-    // Combo Structure
-    public int comboStepRequired;
-    public bool allowCombo;
-    public bool canCombo;
-
     public GameObject skillGFX;
     public ActionEffect actionEffect;
 
@@ -35,7 +30,7 @@ public class UA_Skill : UnitAction {
 
     protected override void EndAction()
     {
-
+        base.EndAction();
     }
 
     public override float GetTSDecalSize()
@@ -48,5 +43,23 @@ public class UA_Skill : UnitAction {
     public override TargetSelectionDecalObject CrateTSDecal()
     {
         return base.CrateTSDecal();
+    }
+
+    public override bool CanBeUsed()
+    {
+        UpdateActionOwner();
+
+        if (actionOwner == null)
+        {
+            return false;
+        }
+
+        if (CanCombo())
+        {
+            if (actionOwner.comboStep == ComboStepRequired() || actionOwner.defaultComboStep == ComboStepRequired())
+                return true;
+        }
+
+        return false;
     }
 }

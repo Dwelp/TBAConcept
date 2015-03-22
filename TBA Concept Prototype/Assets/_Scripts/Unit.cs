@@ -19,7 +19,12 @@ public class Unit : MonoBehaviour {
 
     // -- Actions
     public bool hasMoved;
+    public bool hasActed;
     protected UnitAction activeAction;
+
+    // -- Combo Structure
+    public float comboStep;
+    public float defaultComboStep;
 
     // -- Pathfinding
     protected NavMeshAgent agent;
@@ -45,10 +50,16 @@ public class Unit : MonoBehaviour {
         unitActions = transform.FindChild("UnitActions").GetComponents<UnitAction>().ToList();
         print("actions: " + unitActions.Count);
 
+        foreach(UnitAction action in unitActions)
+        {
+            print(action.GetType());
+        }
+
         agent = GetComponent<NavMeshAgent>();
 
         // Stats
         currentHealth = maxHealth;
+        defaultComboStep = 1;
     }
 
 	// Use this for initialization
@@ -90,11 +101,12 @@ public class Unit : MonoBehaviour {
     {
         unitState = UnitState.Active;
         hasMoved = false;
+        comboStep = defaultComboStep;
     }
 
     public void TurnEnded()
     {
-        unitState = UnitState.NotReady;
+        unitState = UnitState.NotReady;        
     }
 
     // Unit State
@@ -131,9 +143,9 @@ public class Unit : MonoBehaviour {
 
     // Actions 
 
-    public void ActivateAction(string action)
+    public void ActivateAction(string actionName)
     {
-        activeAction = GetAction(action);
+        activeAction = GetAction(actionName);
 
         UIManager.Instance.EnterTargetSelection(activeAction);
 
@@ -167,13 +179,23 @@ public class Unit : MonoBehaviour {
         activeAction.ActivateAction(movePos);
     }
 
-    public virtual void ActionFinished()
+    public virtual void ActionFinished(string actionName)
     {
         UIManager.Instance.ExitTargetSelection();
+        UnitAction action = GetAction(actionName);
+
+        if (action.AllowCombo())
+        {
+            comboStep = action.ComboStepRequired();
+            comboStep++;
+        }
+        else
+            comboStep = defaultComboStep;
+
         activeAction = null;
     }
 
-    UnitAction GetAction(string action)
+    public UnitAction GetAction(string action)
     {
         return unitActions.Find(p => p.actionName == action);
     }

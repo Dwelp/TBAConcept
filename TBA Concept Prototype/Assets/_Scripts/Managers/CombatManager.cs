@@ -131,24 +131,9 @@ public class CombatManager : Manager<CombatManager> {
 
     // Actions
 
-    public void UseActionButton(string button)
+    public void UseActionButton(string actionName)
     {
-        switch(button)
-        {
-            case "MoveBtn":
-                if(activeUnit.unitOwner == UnitOwner.Player)
-                {
-                    activeUnit.ActivateAction("Move");
-                }
-                break;
-
-            case "AttackBtn1":
-                if (activeUnit.unitOwner == UnitOwner.Player)
-                {
-                    activeUnit.ActivateAction("Attack1");
-                }
-                break;
-        }
+        activeUnit.ActivateAction(actionName);
     }
 
     // References

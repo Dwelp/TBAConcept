@@ -73,4 +73,10 @@ public static class Utilities {
     {
         return Guid.NewGuid().ToString("N");
     }
+
+    public static bool IsSameOrSubclass(Type potentialBase, Type potentialDescendant)
+    {
+        return potentialDescendant.IsSubclassOf(potentialBase)
+               || potentialDescendant == potentialBase;
+    }
 }

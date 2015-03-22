@@ -10,7 +10,7 @@ public enum ActionState
     Ended
 }
 
-public class UnitAction : MonoBehaviour {
+public class UnitAction : MonoBehaviour, IComboStructure {
 
     public string actionName;
     protected Unit actionOwner;
@@ -18,6 +18,9 @@ public class UnitAction : MonoBehaviour {
     protected ActionState actionState;
     public TargetSelectionDecal targetSelectionDecal;
     public TargetSelectionDecalObject targetSelectionDecalObject;
+
+    // Combo Structure
+    public ComboStructure comboStructure;
 
     protected virtual void Awake()
     {
@@ -54,7 +57,10 @@ public class UnitAction : MonoBehaviour {
 
     protected virtual void EndAction()
     {
+        actionState = ActionState.None;
+        print("Finished Action: " + actionName + " on " + actionOwner);
 
+        actionOwner.ActionFinished(actionName);
     }
 
     public Unit UpdateActionOwner()
@@ -81,5 +87,27 @@ public class UnitAction : MonoBehaviour {
     {
         actionOwner.ValidatedActionTarget(targetPos);
         return true;
+    }
+
+    // IComboStructure Interface
+
+    public bool CanCombo()
+    {
+        return comboStructure.canCombo;
+    }
+
+    public bool AllowCombo()
+    {
+        return comboStructure.allowCombo;
+    }
+
+    public int ComboStepRequired()
+    {
+        return comboStructure.comboStepRequired;
+    }
+
+    public virtual bool CanBeUsed()
+    {
+        return false;
     }
 }

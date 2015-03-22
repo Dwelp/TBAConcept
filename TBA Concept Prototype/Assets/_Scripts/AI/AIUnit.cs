@@ -22,7 +22,7 @@ public class AIUnit : Unit {
         base.Update();
 	}
 
-    public override void ActionFinished()
+    public override void ActionFinished(string actionName)
     {
         aiBehavior.ActionFinished(activeAction);
 

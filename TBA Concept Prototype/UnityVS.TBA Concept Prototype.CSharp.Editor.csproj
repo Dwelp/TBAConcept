@@ -198,6 +198,8 @@
     <Compile Include="Assets\ProCore\Shared\About\Editor\pb_AboutWindow.cs" />
     <Compile Include="Assets\ProCore\Shared\pb_Profiler\Editor\Tests\TestProfiler.cs" />
     <Compile Include="Assets\ProCore\Shared\pb_Profiler\Editor\pb_Profiler_Interface.cs" />
+    <Compile Include="Assets\_Scripts\Editor\TestInspectorEditor.cs" />
+    <Compile Include="Assets\_Scripts\Editor\UA_SkillEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\_Materials\prototype_textures\readme.txt" />

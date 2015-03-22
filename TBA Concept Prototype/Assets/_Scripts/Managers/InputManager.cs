@@ -54,5 +54,27 @@ public class InputManager : Manager<InputManager> {
                 }
             }
         }
+
+        // Keyboard Hotkeys
+
+        if(Input.GetKeyUp(KeyCode.M))
+        {
+            UIManager.Instance.OnClickButton("MoveBtn");
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha1))
+        {
+            UIManager.Instance.OnClickButton("AttackBtn11");
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha2))
+        {
+            UIManager.Instance.OnClickButton("AttackBtn21");
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha3))
+        {
+            UIManager.Instance.OnClickButton("AttackBtn31");
+        }
 	}
 }

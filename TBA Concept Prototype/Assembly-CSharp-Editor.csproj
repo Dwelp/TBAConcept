@@ -87,6 +87,8 @@
      <Compile Include="Assets\ProCore\Shared\About\Editor\pb_AboutWindow.cs" />
      <Compile Include="Assets\ProCore\Shared\pb_Profiler\Editor\Tests\TestProfiler.cs" />
      <Compile Include="Assets\ProCore\Shared\pb_Profiler\Editor\pb_Profiler_Interface.cs" />
+     <Compile Include="Assets\_Scripts\Editor\TestInspectorEditor.cs" />
+     <Compile Include="Assets\_Scripts\Editor\UA_SkillEditor.cs" />
      <None Include="Assets\Plugins\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\_Shaders\DeferredDecals\DecalShaderDiffuseOnly.shader" />
      <None Include="Assets\Plugins\Prototyping\Shaders\WorldCoordDiffuse.shader" />
