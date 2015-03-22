@@ -3,6 +3,8 @@ using System.Collections;
 
 public class UA_Skill : UnitAction {
 
+    //public float minRange;
+    public float maxRange;
     public GameObject skillGFX;
     public ActionEffect actionEffect;
 
@@ -37,7 +39,7 @@ public class UA_Skill : UnitAction {
     {
         UpdateActionOwner();
 
-        return targetSelectionDecal.decalSize;
+        return maxRange;// -minRange;
     }
 
     public override TargetSelectionDecalObject CrateTSDecal()

@@ -80,6 +80,14 @@ public class UnitAction : MonoBehaviour, IComboStructure {
         UpdateActionOwner();
 
         targetSelectionDecalObject = targetSelectionDecal.CreateTSDecal(GetTSDecalSize(), actionOwner);
+
+        if (actionOwner.attackSocket != null)
+        {
+            Vector3 newPos = targetSelectionDecalObject.transform.position;
+            newPos.y = actionOwner.attackSocket.position.y;
+            targetSelectionDecalObject.transform.position = newPos;
+        }
+
         return targetSelectionDecalObject;
     }
 
@@ -87,6 +95,11 @@ public class UnitAction : MonoBehaviour, IComboStructure {
     {
         actionOwner.ValidatedActionTarget(targetPos);
         return true;
+    }
+
+    public virtual bool IsTargetInRange(GameObject obj)
+    {
+        return false;
     }
 
     // IComboStructure Interface

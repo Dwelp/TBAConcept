@@ -11,15 +11,21 @@ public enum TargetSelectionType
 [Serializable]
 public class TargetSelectionDecal {
 
-    public TargetSelectionType targetSelectionType;
-    public float decalSize;
+    public TargetSelectionType targetSelectionType;    
     public bool followMouse;
+    float decalSize;
+    TargetSelectionDecalObject tsObject;
+
+    public float DecalSize
+    {
+        get { return decalSize; }
+    }
     
     public TargetSelectionDecalObject CreateTSDecal(float size, Unit unit)
     {
         GameObject targetSelectionDecal = null;
         Vector3 pos;
-        TargetSelectionDecalObject tsObject = null;
+        decalSize = size;
 
         switch (targetSelectionType)
         {
@@ -30,7 +36,7 @@ public class TargetSelectionDecal {
                 pos.y = 0;
 
                 targetSelectionDecal.transform.position = pos;
-                targetSelectionDecal.transform.localScale = new Vector3(size, 1, size);
+                targetSelectionDecal.transform.localScale = new Vector3(size, targetSelectionDecal.transform.localScale.y, size);
                 tsObject = targetSelectionDecal.AddComponent<TargetSelectionDecalObject>();
                 tsObject.targetSelectionDecal = this;
                 break;
@@ -42,12 +48,18 @@ public class TargetSelectionDecal {
                 pos.y = 0;
 
                 targetSelectionDecal.transform.position = pos;
-                targetSelectionDecal.transform.localScale = new Vector3(decalSize, 1, decalSize);
+                targetSelectionDecal.transform.localScale = new Vector3(size, targetSelectionDecal.transform.localScale.y, size);
                 tsObject = targetSelectionDecal.AddComponent<TargetSelectionDecalObject>();
                 tsObject.targetSelectionDecal = this;
                 break;
         }
 
         return tsObject;
+    }
+
+    public void AimAt(Vector3 aimTarget)
+    {
+        aimTarget.y = tsObject.transform.position.y;
+        tsObject.transform.LookAt(aimTarget);
     }
 }

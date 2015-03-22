@@ -21,7 +21,6 @@ public class InputManager : Manager<InputManager> {
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 pos = Utilities.GetMouseWorldLocation();
             //print(Utilities.GetMouseHitObject().name);
             //DebugX.DrawPoint(pos, Color.red, 0.5f, 1.0f);
 
@@ -32,6 +31,11 @@ public class InputManager : Manager<InputManager> {
             if (CombatManager.Instance.turnController == CombatManager.TurnController.Player)
             {
                 Unit unit = CombatManager.Instance.GetActiveUnit();
+
+                Vector3 pos = Utilities.GetMouseWorldLocation();
+                pos.y = unit.transform.position.y;
+                float distance = Vector3.Distance(pos, unit.transform.position);
+                print("Distance from player: " + distance);
 
                 if (unit.unitState == UnitState.TargetSelection)
                 {

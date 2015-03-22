@@ -149,13 +149,16 @@ public class UIManager : Manager<UIManager> {
 
         if(inTargetSelection)
         {
-            if(tsDecalObject.targetSelectionDecal.followMouse)
+            if (CombatManager.Instance.turnController == CombatManager.TurnController.Player)
             {
-                Vector3 mousePos = Utilities.GetMouseWorldLocation();
-                mousePos.y = transform.position.y;
-                tsDecalObject.transform.LookAt(mousePos);
-                //Vector3 currentRot = tsDecalObject.transform.rotation.eulerAngles;
-
+                if (tsDecalObject.targetSelectionDecal.followMouse)
+                {
+                    Vector3 mousePos = Utilities.GetMouseWorldLocation();
+                    tsDecalObject.targetSelectionDecal.AimAt(mousePos);
+                    //mousePos.y = tsDecalObject.transform.position.y;
+                    //tsDecalObject.transform.LookAt(mousePos);
+                    //Vector3 currentRot = tsDecalObject.transform.rotation.eulerAngles;
+                }
             }
         }
 

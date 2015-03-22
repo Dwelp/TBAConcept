@@ -162,6 +162,33 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 40129556}
+--- !u!1 &79785464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 79785465}
+  m_Layer: 0
+  m_Name: AttackSocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &79785465
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 79785464}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1984878945}
+  m_RootOrder: 4
 --- !u!1 &117372447
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +235,6 @@ MonoBehaviour:
   actionName: Move
   targetSelectionDecal:
     targetSelectionType: 0
-    decalSize: 0
     followMouse: 0
   targetSelectionDecalObject: {fileID: 0}
   comboStructure:
@@ -230,13 +256,13 @@ MonoBehaviour:
   actionName: Attack1
   targetSelectionDecal:
     targetSelectionType: 1
-    decalSize: 5
     followMouse: 1
   targetSelectionDecalObject: {fileID: 0}
   comboStructure:
     comboStepRequired: 1
     allowCombo: 1
     canCombo: 1
+  maxRange: 5
   skillGFX: {fileID: 100004, guid: 5c7668fdb2b13ea4d982452f636e5bd0, type: 2}
   actionEffect:
     damage: 25
@@ -254,13 +280,13 @@ MonoBehaviour:
   actionName: Attack2
   targetSelectionDecal:
     targetSelectionType: 1
-    decalSize: 5
     followMouse: 1
   targetSelectionDecalObject: {fileID: 0}
   comboStructure:
     comboStepRequired: 2
     allowCombo: 1
     canCombo: 1
+  maxRange: 6
   skillGFX: {fileID: 100004, guid: 5c7668fdb2b13ea4d982452f636e5bd0, type: 2}
   actionEffect:
     damage: 35
@@ -278,13 +304,13 @@ MonoBehaviour:
   actionName: Attack3
   targetSelectionDecal:
     targetSelectionType: 1
-    decalSize: 5
     followMouse: 1
   targetSelectionDecalObject: {fileID: 0}
   comboStructure:
     comboStepRequired: 3
     allowCombo: 0
     canCombo: 1
+  maxRange: 7
   skillGFX: {fileID: 100004, guid: 5c7668fdb2b13ea4d982452f636e5bd0, type: 2}
   actionEffect:
     damage: 40
@@ -2989,6 +3015,7 @@ MonoBehaviour:
   unitState: 0
   speedGougeReady: 0
   DeathGFX: {fileID: 100006, guid: 2a474af3f4c27be4e9bdce39cfe4315d, type: 2}
+  attackSocket: {fileID: 2105344870}
 --- !u!4 &1653561473
 Transform:
   m_ObjectHideFlags: 0
@@ -3003,6 +3030,7 @@ Transform:
   - {fileID: 1239790831}
   - {fileID: 117372448}
   - {fileID: 126558843}
+  - {fileID: 2105344870}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!195 &1653561474
@@ -3729,6 +3757,7 @@ MonoBehaviour:
   unitState: 0
   speedGougeReady: 0
   DeathGFX: {fileID: 100006, guid: 2a474af3f4c27be4e9bdce39cfe4315d, type: 2}
+  attackSocket: {fileID: 79785465}
   aiBehavior: {fileID: 1984878946}
 --- !u!4 &1984878945
 Transform:
@@ -3737,13 +3766,14 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1984878943}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.90999985, y: 1.04999995, z: -11.6800003}
+  m_LocalPosition: {x: -9.90999985, y: 1.25999999, z: -11.6199999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 780716934}
   - {fileID: 388232106}
   - {fileID: 2126629635}
   - {fileID: 1600952263}
+  - {fileID: 79785465}
   m_Father: {fileID: 0}
   m_RootOrder: 4
 --- !u!114 &1984878946
@@ -3773,8 +3803,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
+  m_Height: 1.75999999
+  m_BaseOffset: 1.03999996
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &1984878948
@@ -4016,6 +4046,33 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 1, b: 1, a: .501960814}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!1 &2105344869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2105344870}
+  m_Layer: 0
+  m_Name: AttackSocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2105344870
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2105344869}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1653561473}
+  m_RootOrder: 4
 --- !u!1 &2124976702
 GameObject:
   m_ObjectHideFlags: 0
@@ -4129,6 +4186,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 2126629635}
   - 114: {fileID: 2126629636}
+  - 114: {fileID: 2126629637}
+  - 114: {fileID: 2126629638}
   m_Layer: 0
   m_Name: UnitActions
   m_TagString: Untagged
@@ -4162,13 +4221,60 @@ MonoBehaviour:
   actionName: Move
   targetSelectionDecal:
     targetSelectionType: 0
-    decalSize: 0
     followMouse: 0
   targetSelectionDecalObject: {fileID: 0}
   comboStructure:
     comboStepRequired: 0
     allowCombo: 0
     canCombo: 0
+--- !u!114 &2126629637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2126629634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ea490c72876c14683f85330a80ee20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Attack1
+  targetSelectionDecal:
+    targetSelectionType: 1
+    followMouse: 1
+  targetSelectionDecalObject: {fileID: 0}
+  comboStructure:
+    comboStepRequired: 1
+    allowCombo: 1
+    canCombo: 1
+  maxRange: 5
+  skillGFX: {fileID: 100004, guid: 5c7668fdb2b13ea4d982452f636e5bd0, type: 2}
+  actionEffect:
+    damage: 25
+--- !u!114 &2126629638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2126629634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ea490c72876c14683f85330a80ee20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Attack2
+  targetSelectionDecal:
+    targetSelectionType: 1
+    followMouse: 1
+  targetSelectionDecalObject: {fileID: 0}
+  comboStructure:
+    comboStepRequired: 2
+    allowCombo: 1
+    canCombo: 1
+  maxRange: 5
+  skillGFX: {fileID: 100004, guid: 5c7668fdb2b13ea4d982452f636e5bd0, type: 2}
+  actionEffect:
+    damage: 35
 --- !u!1 &2143547088
 GameObject:
   m_ObjectHideFlags: 0

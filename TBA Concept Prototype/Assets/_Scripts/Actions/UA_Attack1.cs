@@ -21,6 +21,16 @@ public class UA_Attack1 : UA_Skill {
 
     }
 
+    public override bool IsTargetInRange(GameObject obj)
+    {
+        UpdateActionOwner();
+
+        if(Vector3.Distance(obj.transform.position, actionOwner.transform.position) <= maxRange)
+            return true;
+        else
+            return false;
+    }
+
     public override void ActivateAction(Vector3 targetPos)
     {
         DoAction();
@@ -48,6 +58,8 @@ public class UA_Attack1 : UA_Skill {
         particleSystem.Play();
 
         List<Unit> registeredTargets = targetSelectionDecalObject.RegisteredUnits;
+
+        print("Found Targets: " + registeredTargets.Count);
 
         foreach(Unit target in registeredTargets)
         {

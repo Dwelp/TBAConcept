@@ -41,6 +41,9 @@ public class Unit : MonoBehaviour {
     // --- UI
     protected Canvas canvas;
 
+    // --- Sockets
+    public Transform attackSocket;
+
     protected virtual void Awake()
     {
         canvas = transform.FindChild("Canvas").GetComponent<Canvas>();
@@ -106,6 +109,8 @@ public class Unit : MonoBehaviour {
 
     public void TurnEnded()
     {
+        ResetSpeedGouge();
+        DeactivateAction();
         unitState = UnitState.NotReady;        
     }
 
@@ -143,13 +148,15 @@ public class Unit : MonoBehaviour {
 
     // Actions 
 
-    public void ActivateAction(string actionName)
+    public UnitAction ActivateAction(string actionName)
     {
         activeAction = GetAction(actionName);
 
         UIManager.Instance.EnterTargetSelection(activeAction);
 
         unitState = UnitState.TargetSelection;
+
+        return activeAction;
     }
 
     public void DeactivateAction()

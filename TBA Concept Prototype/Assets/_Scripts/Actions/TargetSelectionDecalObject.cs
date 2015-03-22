@@ -21,6 +21,15 @@ public class TargetSelectionDecalObject : MonoBehaviour {
             GFXSlot = transform.FindChild("GFXSlot").gameObject;
 
         registeredUnits = new List<Unit>();
+
+        Decal decal = GetComponentInChildren<Decal>();
+        if (decal != null)
+        {
+            Vector3 posOffset = decal.transform.position - transform.position;
+            Vector3 newPos = transform.position;
+            newPos.y -= transform.localScale.y - (decal.transform.localScale.y / 2);
+            decal.transform.position = newPos + posOffset;
+        }
     }
 
     public void Update()

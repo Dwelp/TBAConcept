@@ -116,7 +116,6 @@ public class CombatManager : Manager<CombatManager> {
     public void EndTurn()
     {
         activeUnit.TurnEnded();
-        activeUnit.ResetSpeedGouge();
         activeUnit = null;
         turnController = TurnController.None;
         combatState = CombatState.PassTime;
@@ -133,7 +132,8 @@ public class CombatManager : Manager<CombatManager> {
 
     public void UseActionButton(string actionName)
     {
-        activeUnit.ActivateAction(actionName);
+        if(activeUnit.GetAction(actionName).CanBeUsed())
+            activeUnit.ActivateAction(actionName);
     }
 
     // References
@@ -141,5 +141,10 @@ public class CombatManager : Manager<CombatManager> {
     public Unit GetActiveUnit()
     {
         return activeUnit;
+    }
+
+    public List<Unit> GetCombatUnits()
+    {
+        return combatInfo.combatUnits;
     }
 }
